@@ -1,0 +1,47 @@
+<div class="container mt-4">
+
+<h1 class="text-center">CRUD USUARIO</h1>
+
+<div class="mb-3">
+  <label for="id" class="form-label">Id usuario</label>
+  <input type="text" class="form-control" id="id" placeholder="E0000" [(ngModel)]="objUsuario.id_usuario">
+</div>
+
+<div>
+  <label for="id" class="form-label">Nombres</label>
+  <input type="text" class="form-control" id="id" placeholder="nombre" [(ngModel)]="objUsuario.nombre">
+</div>
+
+<div>
+  <label for="id" class="form-label">Apellidos</label>
+  <input type="text" class="form-control" id="id" placeholder="apellidos" [(ngModel)]="objUsuario.apellidos">
+</div>
+
+<button *ngIf="statusEdit == false" class="btn btn-success mt-2" (click)="registraUsuario()">Registrar</button>
+
+<button *ngIf="statusEdit == true" class="btn btn-success mt-2" (click)="actualizarUsuario()">Actualizar</button>
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of lstUsuarios">
+        <th scope="row">{{x.id_usuario}}</th>
+        <td>{{ x.nombre}}</td>
+        <td>{{ x.apellidos}}</td>
+        <td><a class="btn btn-primary" (click)="cargarData(x)">Editar</a> <a class="btn btn-danger" (click)="eliminar(x.id_usuario!)">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
